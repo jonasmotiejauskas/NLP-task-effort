@@ -15,10 +15,11 @@ namespace TransformDataset
                 // filter empty lines
                 .Where(x => x.Length > 12)
                 // format label and take 1 feature
-                .Select(arr => new[] { arr[1], !double.TryParse(arr[12],System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture, out var number) ? arr[12] :
-                    number <= 5 ? "0" : number <= 15 ? "1" : "2"})
+                .Where(x => double.TryParse(x[12], NumberStyles.Any, CultureInfo.InvariantCulture, out double _))
+                .Select(arr => new[] {!double.TryParse(arr[12],NumberStyles.Any, CultureInfo.InvariantCulture, out var number) ? arr[12] :
+                    number <= 5 ? "0" : number <= 15 ? "1" : "2", arr[1].ToLowerInvariant().Trim('"').Trim('\t') })
                 // join back to string
-                .Select(sel => string.Join(',', sel));
+                .Select(sel => string.Join('\t', sel));
             await File.WriteAllLinesAsync("transformed-dataset.txt", transformed);
         }
     }
