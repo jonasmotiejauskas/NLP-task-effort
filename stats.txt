@@ -1,0 +1,2 @@
+before dedup: 	12256
+after dedup:	9702

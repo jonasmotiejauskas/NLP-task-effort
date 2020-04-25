@@ -19,7 +19,7 @@ namespace TransformDataset
                 .Select(arr => new[] {!double.TryParse(arr[12],NumberStyles.Any, CultureInfo.InvariantCulture, out var number) ? arr[12] :
                     number <= 5 ? "0" : number <= 15 ? "1" : "2", arr[1].ToLowerInvariant().Trim('"').Trim('\t') })
                 // join back to string
-                .Select(sel => string.Join('\t', sel));
+                .Select(sel => string.Join('\t', sel)).Distinct();
             await File.WriteAllLinesAsync("transformed-dataset.txt", transformed);
         }
     }
