@@ -11,7 +11,7 @@ namespace MLNETML.ConsoleApp
     class Program
     {
         //Dataset to use for predictions 
-        private const string DATA_FILEPATH = @"C:\Users\jonas\Desktop\TaskEffortDataset\transformed-dataset-3.txt";
+        private const string DATA_FILEPATH = @"C:\Users\jonas\Desktop\TaskEffortDataset\TransformDataset\bin\Debug\netcoreapp3.1\D8.txt";
 
         static void Main(string[] args)
         {
@@ -21,9 +21,9 @@ namespace MLNETML.ConsoleApp
             // Make a single prediction on the sample data and print results
             var predictionResult = ConsumeModel.Predict(sampleData);
 
-            Console.WriteLine("Using model to make single prediction -- Comparing actual Label with predicted Label from sample data...\n\n");
-            Console.WriteLine($"Feature: {sampleData.Feature}");
-            Console.WriteLine($"\n\nActual Label: {sampleData.Label} \nPredicted Label value {predictionResult.Prediction} \nPredicted Label scores: [{String.Join(",", predictionResult.Score)}]\n\n");
+            Console.WriteLine("Using model to make single prediction -- Comparing actual Col0 with predicted Col0 from sample data...\n\n");
+            Console.WriteLine($"risk status flow defining: {sampleData.Risk_status_flow_defining}");
+            Console.WriteLine($"\n\nActual Col0: {sampleData.Col0} \nPredicted Col0 value {predictionResult.Prediction} \nPredicted Col0 scores: [{String.Join(",", predictionResult.Score)}]\n\n");
             Console.WriteLine("=============== End of process, hit any key to finish ===============");
             Console.ReadKey();
         }

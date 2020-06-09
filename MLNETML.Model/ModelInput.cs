@@ -6,12 +6,12 @@ namespace MLNETML.Model
 {
     public class ModelInput
     {
-        [ColumnName("Label"), LoadColumn(0)]
-        public float Label { get; set; }
+        [ColumnName("taskeffortclass"), LoadColumn(0)]
+        public float TaskEffortClass { get; set; }
 
 
-        [ColumnName("Feature"), LoadColumn(1)]
-        public string Feature { get; set; }
+        [ColumnName("summary"), LoadColumn(1)]
+        public string Summary { get; set; }
 
 
     }

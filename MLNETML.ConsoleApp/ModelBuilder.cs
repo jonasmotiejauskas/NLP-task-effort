@@ -12,7 +12,7 @@ namespace MLNETML.ConsoleApp
 {
     public static class ModelBuilder
     {
-        private static string TRAIN_DATA_FILEPATH = @"C:\Users\jonas\Desktop\TaskEffortDataset\transformed-dataset-3.txt";
+        private static string TRAIN_DATA_FILEPATH = @"C:\Users\jonas\Desktop\TaskEffortDataset\TransformDataset\bin\Debug\netcoreapp3.1\D8.txt";
         private static string MODEL_FILEPATH = @"C:\Users\jonas\AppData\Local\Temp\MLVSTools\MLNETML\MLNETML.Model\MLModel.zip";
         // Create MLContext to be shared across the model creation workflow objects 
         // Set a random seed for repeatable/deterministic results across multiple trainings.
@@ -44,13 +44,13 @@ namespace MLNETML.ConsoleApp
         public static IEstimator<ITransformer> BuildTrainingPipeline(MLContext mlContext)
         {
             // Data process configuration with pipeline data transformations 
-            var dataProcessPipeline = mlContext.Transforms.Conversion.MapValueToKey("Label", "Label")
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("Feature_tf", "Feature"))
-                                      .Append(mlContext.Transforms.CopyColumns("Features", "Feature_tf"))
+            var dataProcessPipeline = mlContext.Transforms.Conversion.MapValueToKey("0", "0")
+                                      .Append(mlContext.Transforms.Text.FeaturizeText("risk status flow defining_tf", "risk status flow defining"))
+                                      .Append(mlContext.Transforms.CopyColumns("Features", "risk status flow defining_tf"))
                                       .Append(mlContext.Transforms.NormalizeMinMax("Features", "Features"))
                                       .AppendCacheCheckpoint(mlContext);
             // Set the training algorithm 
-            var trainer = mlContext.MulticlassClassification.Trainers.OneVersusAll(mlContext.BinaryClassification.Trainers.AveragedPerceptron(labelColumnName: "Label", numberOfIterations: 10, featureColumnName: "Features"), labelColumnName: "Label")
+            var trainer = mlContext.MulticlassClassification.Trainers.OneVersusAll(mlContext.BinaryClassification.Trainers.AveragedPerceptron(labelColumnName: "0", numberOfIterations: 10, featureColumnName: "Features"), labelColumnName: "0")
                                       .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
 
             var trainingPipeline = dataProcessPipeline.Append(trainer);
@@ -73,7 +73,7 @@ namespace MLNETML.ConsoleApp
             // Cross-Validate with single dataset (since we don't have two datasets, one for training and for evaluate)
             // in order to evaluate and get the model's accuracy metrics
             Console.WriteLine("=============== Cross-validating to get model's accuracy metrics ===============");
-            var crossValidationResults = mlContext.MulticlassClassification.CrossValidate(trainingDataView, trainingPipeline, numberOfFolds: 5, labelColumnName: "Label");
+            var crossValidationResults = mlContext.MulticlassClassification.CrossValidate(trainingDataView, trainingPipeline, numberOfFolds: 5, labelColumnName: "0");
             PrintMulticlassClassificationFoldsAverageMetrics(crossValidationResults);
         }
 

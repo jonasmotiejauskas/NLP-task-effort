@@ -351,12 +351,9 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 raw-dataset.txt
-transformed-dataset.txt
-transformed-dataset-dup.txt
-transformed-dataset-3.txt
-transformed-dataset-3.csv
-transformed-dataset-4.txt
-transformed-dataset-dup-3.txt
+transformed-*.txt
+transformed-*.csv
+transformed-*.tsv
 
 TransformDataset/bin/*
 TransformDataset/obj/*

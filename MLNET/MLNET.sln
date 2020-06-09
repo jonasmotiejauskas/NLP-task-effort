@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLNET", "MLNET.csproj", "{FC5DE55F-E816-4DBC-885C-5934FAA08420}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLNETML.Model", "..\MLNETML.Model\MLNETML.Model.csproj", "{92A8F942-5C85-4C8C-AE61-0AAD55AC4EAD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLNETML.ConsoleApp", "..\MLNETML.ConsoleApp\MLNETML.ConsoleApp.csproj", "{EFFA176E-463F-4317-8B81-4C0EC6575CC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{FC5DE55F-E816-4DBC-885C-5934FAA08420}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC5DE55F-E816-4DBC-885C-5934FAA08420}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC5DE55F-E816-4DBC-885C-5934FAA08420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A8F942-5C85-4C8C-AE61-0AAD55AC4EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A8F942-5C85-4C8C-AE61-0AAD55AC4EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A8F942-5C85-4C8C-AE61-0AAD55AC4EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A8F942-5C85-4C8C-AE61-0AAD55AC4EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFFA176E-463F-4317-8B81-4C0EC6575CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFFA176E-463F-4317-8B81-4C0EC6575CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFFA176E-463F-4317-8B81-4C0EC6575CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFFA176E-463F-4317-8B81-4C0EC6575CC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
