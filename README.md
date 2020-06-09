@@ -1,3 +1,4 @@
 # NLP-task-effort
 
-datasets hidden, because of licensing
+SiP dataset is used for research: https://github.com/Derek-Jones/SiP_dataset
+
